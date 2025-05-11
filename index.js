@@ -3,7 +3,9 @@ const connectDB = require("./config/db");
 require("dotenv").config();
 const authRouter = require("./routes/auth.routes");
 const userRouter = require("./routes/user.routes");
+const articleRouter = require('./routes/articles.routes');
 const cookieParser = require("cookie-parser");
+
 
 const app = express();
 
@@ -16,7 +18,8 @@ app.get("/", (req, res) => {
 });
 
 app.use("/api/v1/auth", authRouter);
-app.use('/api/v1/users', userRouter)
+app.use('/api/v1/users', userRouter);
+app.use('/api/v1/articles', articleRouter)
 
 const PORT = process.env.PORT || 3000;
 
